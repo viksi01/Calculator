@@ -1,4 +1,4 @@
-from UI.menu import Menu
+from ui.menu import Menu
 
 def main():
     menu = Menu()
