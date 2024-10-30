@@ -108,4 +108,3 @@ def run_ascii():
     if save_choice == 'yes':
         filename = input("Enter filename: ")
         save_to_file(resized_art, filename)
-
