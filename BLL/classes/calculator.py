@@ -51,7 +51,7 @@ class Calculator:
             if operator == 'sqrt':
               second_operand = None 
             else:
-              self.get_operand("Enter the second operand or MR (Memory recall): ")
+              second_operand = self.get_operand("Enter the second operand or MR (Memory recall): ")
 
             return first_operand, second_operand, operator
         except Exception as e:
@@ -59,15 +59,21 @@ class Calculator:
             return None, None, None
 
     def calculate(self, first_operand, second_operand, operator):
+    
+        if not isinstance(first_operand, (int,float)) or (second_operand is not None and not isinstance(second_operand, (int,float))):
+            raise TypeError("All operands must be float numbers.")
+        
+        if operator == '/' and second_operand == 0:
+            raise ZeroDivisionError("Division by zero is not allowed.")
+        
         try:
             operation = self.operations[operator]
             result = operation(first_operand, second_operand) if operator != 'sqrt' else operation(first_operand)
             return round(result, decimal_places) if result is not None else None
-        except ZeroDivisionError:
-            print("Error: Division by zero is not allowed.")
+
         except Exception as e:
             print(f"Error: {e}")
-        return None
+            return None
 
     def perform_memory_operation(self, result):
         try:
@@ -93,12 +99,26 @@ class Calculator:
             print(f"Error: {e}")
 
     def run(self):
-        while True:
+         while True:
             first_operand, second_operand, operator = self.input()
             if operator is None:
-                continue
+                print("Invalid input. Please try again.")
+                continue  
 
-            result = self.calculate(first_operand, second_operand, operator)
+            result = None
+
+            try:
+                result = self.calculate(first_operand, second_operand, operator)
+            except ZeroDivisionError as e:
+                print(e) 
+                continue  
+            except TypeError as e:
+                print(e)  
+                continue 
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")
+                continue 
+
             if result is not None:
                 print(f"Result: {result}")
                 add_to_history(f"{first_operand} {operator} {second_operand if second_operand is not None else ''} = {result}")
