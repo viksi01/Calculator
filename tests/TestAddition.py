@@ -4,35 +4,35 @@ import unittest
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from bll.classes.calculator import Calculator
-from bll.settings import decimal_places
+from bll.classes.calculator.calculator import Calculator
+from app_settings import decimal_places
 
 
-class DivisionUnitTests(unittest.TestCase):
+class AdditionUnitTests(unittest.TestCase):
     def setUp(self):
-        self.operator = '/'
+        self.operator = '+'
     
-    def test_division_positive_numbers(self):
+    def test_addition_positive_numbers(self):
         test_first_operand = random.uniform(1, 100)
         test_second_operand = random.uniform(1, 100)
-        expected = test_first_operand / test_second_operand
+        expected = test_first_operand + test_second_operand
         calc = Calculator()
         result = calc.calculate(test_first_operand, test_second_operand, self.operator)
         self.assertAlmostEqual(expected, result, places = decimal_places)
     
-    def test_division_negative_numbers(self):
+    def test_addition_negative_numbers(self):
         test_first_operand = random.uniform(-100, -1)
         test_second_operand = random.uniform(-100, -1)
-        expected = test_first_operand / test_second_operand
+        expected = test_first_operand + test_second_operand
         calc = Calculator()
         result = calc.calculate(test_first_operand, test_second_operand, self.operator)
         self.assertAlmostEqual(expected, result, places = decimal_places)
 
-    def test_division_by_zero(self):
-        test_first_operand = random.uniform(1, 100)
-        test_second_operand = 0
+    def test_addition_wrong_input(self):
+        test_first_operand = ''.join(random.choice(string.ascii_letters) for _ in range(10))
+        test_second_operand = ''.join(random.choice(string.ascii_letters) for _ in range(10))
         calc = Calculator()
-        with self.assertRaises(ZeroDivisionError):
+        with self.assertRaises(TypeError):
             calc.calculate(test_first_operand, test_second_operand, self.operator)
 
 

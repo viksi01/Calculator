@@ -3,7 +3,7 @@ from bll.functions import (
     memory_store, memory_recall, memory_clear, memory_add,
     add_to_history, get_history, clear_history
 )
-from bll.settings import decimal_places
+from app_settings import decimal_places
 
 class Calculator:
     def __init__(self):

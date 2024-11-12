@@ -1,5 +1,5 @@
 import os
-from ascii.ascii_templates import ascii_templates 
+from sources.ascii_templates import ascii_templates 
 
 class ASCIIArtGenerator:
     def __init__(self):
