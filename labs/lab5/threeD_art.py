@@ -1,5 +1,5 @@
 import os
-from bll.classes.threeD.cube import Cube
+from labs.lab5.cube import Cube
 from termcolor import colored
 
 class ThreeDArtGenerator:
@@ -128,3 +128,4 @@ class ThreeDArtGenerator:
             else:
                 print("Skipping save.")
                 break
+

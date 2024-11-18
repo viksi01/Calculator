@@ -1,9 +1,9 @@
 import os, sys
-from bll.classes.calculator.calculator import Calculator
-from app_settings import set_decimal_places
-from bll.classes.ascii.ascii_art import ASCIIArtGenerator
-from bll.classes.ascii.ascii_art_pyfiglet import run_ascii
-from bll.classes.threeD.threeD_art import ThreeDArtGenerator
+from labs.lab2.calculator import Calculator
+from shared.app_settings import set_decimal_places
+from labs.lab4.ascii_art import ASCIIArtGenerator
+from labs.lab3.ascii_art_pyfiglet import AsciiArtPyfiglet
+from labs.lab5.threeD_art import ThreeDArtGenerator
 
 
 
@@ -11,6 +11,7 @@ class Menu:
     def __init__(self):
         self.calculator = Calculator()
         self.ascii_art_generator = ASCIIArtGenerator()
+        self.ascii_art_pyfiglet = AsciiArtPyfiglet()
         self.threeD_art_generator = ThreeDArtGenerator()
 
     def display(self):
@@ -27,7 +28,7 @@ class Menu:
             if choice == '1':
                 self.calculator.run()  
             elif choice == '2':
-                run_ascii() 
+                self.ascii_art_pyfiglet.run()
             elif choice == '3':
                 self.ascii_art_generator.run() 
             elif choice == '4':

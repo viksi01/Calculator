@@ -1,10 +1,7 @@
 import random
 import unittest
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from bll.classes.calculator.calculator import Calculator
-from app_settings import decimal_places
+from labs.lab2.calculator import Calculator
+from shared.app_settings import decimal_places
 
 
 class SubstractionUnitTests(unittest.TestCase):

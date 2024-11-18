@@ -1,4 +1,4 @@
-from bll.classes.threeD.base_figure import BaseFigure
+from labs.lab5.base_figure import BaseFigure
 
 class Cube(BaseFigure):
     def __init__(self, side_a: int, horizontal_shift: int = 10, vertical_shift: int = 0):

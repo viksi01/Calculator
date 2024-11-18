@@ -1,9 +1,5 @@
-from bll.functions import (
-    addition, substraction, multiplication, division, power, square_root, modulus,
-    memory_store, memory_recall, memory_clear, memory_add,
-    add_to_history, get_history, clear_history
-)
-from app_settings import decimal_places
+from shared.functions import add_to_history, addition, division, get_history, memory_add, memory_clear, memory_recall, memory_store, modulus, multiplication, power, square_root, substraction
+from shared.app_settings import decimal_places
 
 class Calculator:
     def __init__(self):
@@ -129,3 +125,8 @@ class Calculator:
             repeat = input("Do you want to perform another calculation? (Enter 'yes' or any other character if no): ").strip().lower()
             if repeat != 'yes':
                 break
+
+
+if __name__ == "__main__":
+    calculator = Calculator()
+    calculator.run()

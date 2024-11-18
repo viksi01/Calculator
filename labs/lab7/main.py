@@ -1,4 +1,4 @@
-from app import App
+from labs.lab7.app import App
 
 if __name__ == "__main__":
     app = App()
