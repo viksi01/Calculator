@@ -33,6 +33,9 @@ class BaseAsciiArt:
                 scaled_art.append(scaled_line)
         return "\n".join(scaled_art)
 
+    def generate_ascii_art(self):
+        pass
+
     def preview_art(self):
         print("\nASCII art preview:\n")
         print(self.generated_art)

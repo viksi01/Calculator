@@ -44,6 +44,8 @@ class AsciiArtPyfiglet(BaseAsciiArt):
         self.generated_art = self.resize_ascii_art(ascii_art)
         print(colored(self.generated_art, color))
 
+
+
     def run(self):
         while True:
             print("\nMain Menu")
